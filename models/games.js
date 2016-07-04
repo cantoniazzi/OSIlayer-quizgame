@@ -1,0 +1,1 @@
+games = new Mongo.Collection("games")

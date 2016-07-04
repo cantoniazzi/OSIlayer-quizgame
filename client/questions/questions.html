@@ -1,0 +1,62 @@
+<template name="questions">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="row">
+					
+				{{#if hasAnswered}}
+					<div class="col-sm-12 text-center">
+						<br><br>
+						<button class="btn btn-primary btn-lg" id="nexStep">
+							<span class="glyphicon glyphicon-fast-forward"></span> Próximo jogador
+						</button>
+						<br><br><br>
+						{{#if answerCorrect}}
+						<div class="panel panel-success">
+							<h2>Parabéns, você acertou a resposta!</h2>
+							<!--<h3>Avance 01 (uma) casa</h3>-->
+							<div class="panel-body text-center">
+								<img src="/images/victory.gif" class="img-rounded" alt="Cinque Terre" width="70%">
+							</div>
+						</div>
+						{{else}}
+						<div class="panel panel-success text-center">
+							<h2>Ops, não foi desta vez!</h2>
+							<h3>Retorne 01 (uma) casa</h3>
+							<div class="panel-body text-center">
+								<img src="/images/fail.gif" class="img-rounded" alt="Cinque Terre" width="50%">
+							</div>
+						</div>
+						{{/if}}
+					</div>
+
+				{{else}}
+
+				<div class="panel panel-success">
+						<h3>Você tirou {{rolledDice}} no dado</h3>
+						<h4>Avance {{rolledDice}} casas e responda a pergunta abaixo:</h4>
+						<div class="panel-body text-center">
+							<img src="/images/walk.gif" class="img-rounded" alt="Cinque Terre" width="70%">
+						</div>
+					</div>
+
+					<div class="col-sm-12 text-left">
+						
+					{{#each questions}}
+						<h2>Camada: {{checkLayer layer}}</h2>
+						<h3>{{name}}:</h3>
+						{{#each answers}}	
+							<div class="col-md-2">
+								<button type="button" class="btn btn-primary btn-xs answer">responder</button>	
+							</div>
+							<div class="col-sm-10">
+								<h4 style="margin-top:0;">{{this}}</h4>	
+							</div>	
+						{{/each}}
+					{{/each}}
+					</div>
+				{{/if}}
+			</div>
+			<hr>
+		</div>
+	</div>
+</template>

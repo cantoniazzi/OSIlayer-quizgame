@@ -1,0 +1,31 @@
+<template name="games">
+
+	<div class="row">
+		<div class="col-xs-12">
+
+		<div class="panel panel-info">
+			<div class="panel-heading"> 
+				<h3 class="panel-title">Partidas não finalizadas</h3> 
+			</div> 
+			<div class="panel-body">
+				<ul class="list-group">
+					{{#each games}}
+					<li class="list-group-item">
+						<button type="button" class="btn btn-success">Retornar partida</button>
+						&nbsp;&nbsp;
+						{{name}}
+					</li>
+					{{/each}}
+					{{#unless hasGame}}
+					<div class="text-center">
+						<h4>Não existem partidas não finalizadas</h4>	
+					</div>
+					{{/unless}}
+				</ul>
+			</div> 
+		</div>
+
+		</div>
+	</div>
+
+</template>
